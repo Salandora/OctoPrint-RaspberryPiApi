@@ -1,0 +1,82 @@
+/* Legende */
+#settings_plugin_raspberrypiapi .legende,
+#settings_plugin_raspberrypiapi .legende label {
+    margin-bottom: 0px;
+}
+#settings_plugin_raspberrypiapi .legende .control-group {
+    margin: 0px;
+    min-height: 0;
+}
+#settings_plugin_raspberrypiapi .legende > .span3 {
+    width: 25%;
+}
+#settings_plugin_raspberrypiapi .legende > .span4 {
+    width: 33.33%;
+}
+
+/* GPIO */
+#settings_plugin_raspberrypiapi .gpio {
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#859900));
+    background-image: -webkit-linear-gradient(top, #fff, #859900);
+    background-image: -o-linear-gradient(top, #fff, #859900);
+    background-image: linear-gradient(to bottom, #fff, #859900);
+}
+.btn-matrix .gpio:focus,
+.btn-matrix .gpio:hover {
+    background-color: #859900;
+}
+
+/* I2C */
+#settings_plugin_raspberrypiapi .i2c {
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#268BD2));
+    background-image: -webkit-linear-gradient(top, #fff, #268BD2);
+    background-image: -o-linear-gradient(top, #fff, #268BD2);
+    background-image: linear-gradient(to bottom, #fff, #268BD2);
+}
+.btn-matrix .i2c:focus,
+.btn-matrix .i2c:hover {
+    background: #268BD2;
+}
+
+/* UART */
+#settings_plugin_raspberrypiapi .uart {
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#6c71c4));
+    background-image: -webkit-linear-gradient(top, #fff, #6c71c4);
+    background-image: -o-linear-gradient(top, #fff, #6c71c4);
+    background-image: linear-gradient(to bottom, #fff, #6c71c4);
+}
+.btn-matrix .uart:focus,
+.btn-matrix .uart:hover {
+    background: #6c71c4;
+}
+
+/* SPI */
+#settings_plugin_raspberrypiapi .spi {
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#D33682));
+    background-image: -webkit-linear-gradient(top, #fff, #D33682);
+    background-image: -o-linear-gradient(top, #fff, #D33682);
+    background-image: linear-gradient(to bottom, #fff, #D33682);
+}
+.btn-matrix .spi:focus,
+.btn-matrix .spi:hover {
+    background: #D33682;
+}
+
+/* 5V */
+#settings_plugin_raspberrypiapi .pow5v,
+#settings_plugin_raspberrypiapi .pow5v {
+    background: #DC322F;
+}
+
+/* 3V3 */
+#settings_plugin_raspberrypiapi .pow3v3,
+#settings_plugin_raspberrypiapi .pow3v3 {
+    background: #B58900;
+}
+
+/* GND */
+#settings_plugin_raspberrypiapi .gnd,
+#settings_plugin_raspberrypiapi .gnd {
+    color: #ffffff;
+    background: #002B36;
+}

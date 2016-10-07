@@ -1,0 +1,29 @@
+.btn-matrix > .btn {
+    width: 50px;
+    position: relative;
+    float: left;
+}
+
+.btn-matrix > .btn:nth-child(2n+3) {
+  clear: left;
+  margin-left: 0;
+}
+.btn-matrix > .btn:nth-child(n+3) {
+  margin-top: -1px;
+}
+.btn-matrix > .btn:first-child {
+  border-bottom-left-radius: 0;
+}
+.btn-matrix > .btn:nth-child(2) {
+  border-top-right-radius: 4px !important;
+}
+.btn-matrix > .btn:nth-last-child(2) {
+  border-bottom-left-radius: 4px !important;
+}
+.btn-matrix > .btn:last-child {
+  border-top-right-radius: 0;
+}
+
+.btn-matrix {
+  margin-top: 20px;
+}

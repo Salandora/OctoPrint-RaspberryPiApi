@@ -1,0 +1,212 @@
+<div class="row" style="margin-top: 20px">
+    <div class="offset1 span3">
+        <div class="row">
+            <div class="span12 control-group">
+                <div class="controls">
+                    <label class="checkbox">
+                        <input type="checkbox" data-bind="checked: show_bcm"> {{ _('Show Pins with BCM code') }}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row legende">
+            <div class="span4 control-group">
+                <label class="pow5v text-center">
+                    {{ _('5V') }}
+                </label>
+            </div>
+            <div class="span4 control-group">
+                <label class="pow3v3 text-center">
+                    {{ _('3V3') }}
+                </label>
+            </div>
+            <div class="span4 control-group">
+                <label class="gnd text-center">
+                    {{ _('GND') }}
+                </label>
+            </div>
+        </div>
+        <div class="row legende">
+            <div class="span3 control-group">
+                <label class="gpio text-center">
+                    {{ _('GPIO') }}
+                </label>
+            </div>
+            <div class="span3 control-group">
+                <label class="uart text-center">
+                    {{ _('UART') }}
+                </label>
+            </div>
+            <div class="span3 control-group">
+                <label class="i2c text-center">
+                    {{ _('I2C') }}
+                </label>
+            </div>
+            <div class="span3 control-group">
+                <label class="spi text-center">
+                    {{ _('SPI') }}
+                </label>
+            </div>
+        </div>
+        <div class="row offset1">
+            <!-- ko if: show_bcm -->
+                <div class="span12 btn-group btn-matrix">
+                    <button class="btn pow3v3">3v3</button>
+                    <button class="btn pow5v">5v</button>
+                    
+                    <button class="btn i2c" data-bind="click: selectPin, css: { active: isSelected($element) }">2</button>
+                    <button class="btn pow5v">5v</button>
+                    
+                    <button class="btn i2c" data-bind="click: selectPin, css: { active: isSelected($element) }">3</button>
+                    <button class="btn gnd">GND</button>
+                    
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">4</button>
+                    <button class="btn uart" data-bind="click: selectPin, css: { active: isSelected($element) }">14</button>
+                    
+                    <button class="btn gnd">GND</button>
+                    <button class="btn uart" data-bind="click: selectPin, css: { active: isSelected($element) }">15</button>
+                    
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">17</button>
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">18</button>
+                    
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">27</button>
+                    <button class="btn gnd">GND</button>
+                    
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">22</button>
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">23</button>
+                    
+                    <button class="btn pow3v3">3v3</button>
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">24</button>
+                    
+                    <button class="btn spi" data-bind="click: selectPin, css: { active: isSelected($element) }">10</button>
+                    <button class="btn gnd">GND</button>
+                    
+                    <button class="btn spi" data-bind="click: selectPin, css: { active: isSelected($element) }">9</button>
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">25</button>
+                    
+                    <button class="btn spi" data-bind="click: selectPin, css: { active: isSelected($element) }">11</button>
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">8</button>
+                    
+                    <button class="btn gnd">GND</button>
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">7</button>
+                    
+                    <button class="btn i2c" data-bind="click: selectPin, css: { active: isSelected($element) }">0</button>
+                    <button class="btn i2c" data-bind="click: selectPin, css: { active: isSelected($element) }">1</button>
+                    
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">5</button>
+                    <button class="btn gnd">GND</button>
+                    
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">6</button>
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">12</button>
+                    
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">13</button>
+                    <button class="btn gnd">GND</button>
+                    
+                    <button class="btn spi" data-bind="click: selectPin, css: { active: isSelected($element) }">19</button>
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">16</button>
+                    
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">26</button>
+                    <button class="btn spi" data-bind="click: selectPin, css: { active: isSelected($element) }">20</button>
+                    
+                    <button class="btn gnd">GND</button>
+                    <button class="btn spi" data-bind="click: selectPin, css: { active: isSelected($element) }">21</button>
+                </div>
+            <!-- /ko -->
+            <!-- ko ifnot: show_bcm -->
+                <div class="span12 btn-group btn-matrix">
+                    <button class="btn pow3v3">3v3</button>
+                    <button class="btn pow5v">5v</button>
+                    
+                    <button class="btn i2c" data-bind="click: selectPin, css: { active: isSelected($element) }">3</button>
+                    <button class="btn pow5v">5v</button>
+                    
+                    <button class="btn i2c" data-bind="click: selectPin, css: { active: isSelected($element) }">5</button>
+                    <button class="btn gnd">GND</button>
+                    
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">7</button>
+                    <button class="btn uart" data-bind="click: selectPin, css: { active: isSelected($element) }">8</button>
+                    
+                    <button class="btn gnd">GND</button>
+                    <button class="btn uart" data-bind="click: selectPin, css: { active: isSelected($element) }">10</button>
+                    
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">11</button>
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">12</button>
+                    
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">13</button>
+                    <button class="btn gnd">GND</button>
+                    
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">15</button>
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">16</button>
+                    
+                    <button class="btn pow3v3">3v3</button>
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">18</button>
+                    
+                    <button class="btn spi" data-bind="click: selectPin, css: { active: isSelected($element) }">19</button>
+                    <button class="btn gnd">GND</button>
+                    
+                    <button class="btn spi" data-bind="click: selectPin, css: { active: isSelected($element) }">21</button>
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">22</button>
+                    
+                    <button class="btn spi" data-bind="click: selectPin, css: { active: isSelected($element) }">23</button>
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">24</button>
+                    
+                    <button class="btn gnd">GND</button>
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">26</button>
+                    
+                    <button class="btn i2c" data-bind="click: selectPin, css: { active: isSelected($element) }">27</button>
+                    <button class="btn i2c" data-bind="click: selectPin, css: { active: isSelected($element) }">28</button>
+                    
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">29</button>
+                    <button class="btn gnd">GND</button>
+                    
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">31</button>
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">32</button>
+                    
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">33</button>
+                    <button class="btn gnd">GND</button>
+                    
+                    <button class="btn spi" data-bind="click: selectPin, css: { active: isSelected($element) }">35</button>
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">36</button>
+                    
+                    <button class="btn gpio" data-bind="click: selectPin, css: { active: isSelected($element) }">37</button>
+                    <button class="btn spi" data-bind="click: selectPin, css: { active: isSelected($element) }">38</button>
+                    
+                    <button class="btn gnd">GND</button>
+                    <button class="btn spi" data-bind="click: selectPin, css: { active: isSelected($element) }">40</button>
+                </div>
+            <!-- /ko -->
+        </div>
+    </div>
+    <div class="span7" style="margin-top: 20px">
+        <div class="row span12"></div>
+        <div class="row span12"></div>
+        <div class="row span12"></div>
+        <div class="row span12">
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label">{{ _('Selected Plus PIN Number') }}</label>
+                    <div class="controls">
+                        <input type="text" id="gpio_number_plus" data-bind="value: settings.settings.plugins.raspberrypiapi.gpio_number_plus">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">{{ _('Selected Minus PIN Number(optional)') }}</label>
+                    <div class="controls">
+                        <input type="text" id="gpio_number_minus" data-bind="value: settings.settings.plugins.raspberrypiapi.gpio_number_minus">
+                    </div>
+                </div>
+                <div class="control-group" data-bind="if: settings.settings.plugins.raspberrypiapi.gpio_number_plus() != -1 && settings.settings.plugins.raspberrypiapi.gpio_number_minus() != -1">
+                    <label class="control-label">{{ _('Delay between Plus and Minus Turn off') }}</label>
+                    <div class="controls">
+                        <input type="number" step="0.25" data-bind="value: settings.settings.plugins.raspberrypiapi.delay">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="checkbox">
+                        <input type="checkbox" data-bind="checked: settings.settings.plugins.raspberrypiapi.active_low">{{ _('Invert Enable State') }}</input>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
