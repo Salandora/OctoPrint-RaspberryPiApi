@@ -52,7 +52,6 @@ class RaspberryPiApiPlugin(SwitchOnOffApiPlugin,
 		)
 
 	##~~ Softwareupdate hook
-
 	def get_update_information(self):
 		# Define the configuration for your plugin to use with the Software Update
 		# Plugin here. See https://github.com/foosel/OctoPrint/wiki/Plugin:-Software-Update
@@ -73,6 +72,7 @@ class RaspberryPiApiPlugin(SwitchOnOffApiPlugin,
 			)
 		)
 		
+	##~~ SwitchOnOffApiPlugin mixin
 	def setup_gpio(self):
 		plus_pin = self._settings.get_int(["gpio_number_plus"])
 		if plus_pin == -1:
@@ -92,15 +92,16 @@ class RaspberryPiApiPlugin(SwitchOnOffApiPlugin,
 		except:
 			self._logger.exception("Failed to initialize the GPIO")
 	
-	##~~ SwitchOnOffApiPlugin
 	def on_shutdown(self):
+		'''Gets called if this is the active api and the servers is shuting down'''
 		try:
 			GPIO.cleanup()
 			self._initialized = False
 		except:
 			self._logger.exception("Failed to cleanup the GPIO's")
-		
-	def set_power(self, enable):
+			
+	def set_power(self, power):
+		'''Sets the power state either True(On) or False(Off)'''
 		## If not already done initialize the necessary GPIOs
 		if not self._initialized:
 			self.setup_gpio()
@@ -116,11 +117,11 @@ class RaspberryPiApiPlugin(SwitchOnOffApiPlugin,
 			delay = self._settings.get_float(["delay"])
 			
 			
-			## Depending on the enable and active_low variable we set the output 
+			## Depending on the power and active_low variable we set the output 
 			## to pull up or pull down. If relays get activated by an pull down
 			## to ground (active_low) we need to set the pins to low if we want
 			## them to be activated
-			if enable:
+			if power:
 				if minus_pin != -1: 
 					## Enable minus first then, plus
 					GPIO.output(minus_pin, GPIO.LOW if self.active_low else GPIO.HIGH)
@@ -135,9 +136,11 @@ class RaspberryPiApiPlugin(SwitchOnOffApiPlugin,
 						sleep(delay)
 					GPIO.output(minus_pin, GPIO.HIGH if self.active_low else GPIO.LOW)
 		except:
-			self._logger.exception("Failed to {} pin".format("enable" if enable else "disable"))
+			self._logger.exception("Failed to {}".format("power on" if power else "power off"))
 			
 	def get_power(self):
+		'''Returns the actual state.
+		Possible values are: State.ON, State.OFF and State.UNKNOWN'''
 		## If not already done initialize the necessary GPIOs
 		if not self._initialized:
 			self.setup_gpio()
@@ -169,7 +172,7 @@ class RaspberryPiApiPlugin(SwitchOnOffApiPlugin,
 		return State.UNKNOWN
 
 
-__plugin_name__ = "RaspberryPiApi"
+__plugin_name__ = "RaspberryPi API"
 
 def __plugin_load__():
 	if _disable:
