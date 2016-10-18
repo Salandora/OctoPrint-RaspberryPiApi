@@ -133,7 +133,7 @@ class RaspberryPiApiPlugin(SwitchOnOffApiPlugin,
 				if minus_pin != -1: 
 					if delay > 0:
 						sleep(delay)
-					GPIO.output(minus_pin, GPIO.LOW if self.active_low else GPIO.HIGH)
+					GPIO.output(minus_pin, GPIO.HIGH if self.active_low else GPIO.LOW)
 		except:
 			self._logger.exception("Failed to {} pin".format("enable" if enable else "disable"))
 			
@@ -157,7 +157,7 @@ class RaspberryPiApiPlugin(SwitchOnOffApiPlugin,
 			## If minus_pin is -1 then set it as True for the next if case
 			state_minus = GPIO.input(minus_pin) if minus_pin != -1 else True
 			
-			output = True if state_plus and state_minus else False
+			output = state_plus and state_minus
 		except:
 			self._logger.exception("Failed to read pin state")
 		else:
