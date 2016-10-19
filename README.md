@@ -1,6 +1,6 @@
 # OctoPrint-RaspberryPiApi
 
-Raspberry PI Api for Automatic On/Off Plugin for OctoPrint
+Raspberry PI Api for [Automatic On/Off Plugin](https://github.com/Salandora/OctoPrint-AutomaticOnOffPlugin) for OctoPrint
 This enables you to specify 2 GPIO pins which switch a relay to turn on/off your printer
 
 It depends on the RPi.GPIO library and the Automatic On/Off Plugin
